@@ -104,22 +104,22 @@
 //     console.log("default button");
 // }
 
-const buttonType = "main";
+// const buttonType = "main";
 
-switch (buttonType) {
-    case "main":
-        console.log("main");
-    case "global":
-        console.log("global");
-    case "primary":
-        console.log("primary");
-        break;
+// switch (buttonType) {
+//     case "main":
+//         console.log("main");
+//     case "global":
+//         console.log("global");
+//     case "primary":
+//         console.log("primary");
+//         break;
 
-    case "second":
-    case "double":
-    case "secondary":
-        console.log("secondary");
-        break;
-    default:
-        console.log("dafault button");
-}
+//     case "second":
+//     case "double":
+//     case "secondary":
+//         console.log("secondary");
+//         break;
+//     default:
+//         console.log("dafault button");
+// }
