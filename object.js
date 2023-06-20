@@ -33,21 +33,21 @@
 // console.log(c.info);
 // // { name: 'Ivan', age: 35 }
 
-// const person = {
-//     name: "Ivan",
-//     age: 25,
-//     occupation: "Розробник програмного забезпечення",
+const person = {
+    name: "Ivan",
+    age: 25,
+    occupation: "Розробник програмного забезпечення",
 
-//     address: {
-//         city: "Київ",
-//         street: "вул. Шевченка",
-//         houseNumber: 10,
-//     },
+    address: {
+        city: "Київ",
+        street: "вул. Шевченка",
+        houseNumber: 10,
+    },
 
-//     getAddress: function () {
-//         return this.address;
-//     },
-// };
+    getAddress: function () {
+        return this.address;
+    },
+};
 
 // console.log(person.getAddress());
 // { city: 'Київ', street: 'вул. Шевченка', houseNumber: 10 }
