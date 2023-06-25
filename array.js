@@ -322,3 +322,231 @@ console.log(arr5.every((elem, index, array) => elem >= 0));
 // Це вбудована функція, яка використовується для перевірки, чи принаймні один елемент масиву задовольняє вказану умову, задану у вигляді функції.
 console.log(arr5.some((elem, index, array) => elem < 0));
 // true  Тому що в масиві міститься хочаб елемент менше нуля
+
+// ==============================================================
+const userList = [
+    { id: 1, name: "Dima", age: 19 },
+    { id: 54, name: "Ivan", age: 35 },
+    { id: 6412, name: "Anton", age: 41 },
+];
+
+let age = 0;
+
+// const userBigAge = userList.sort((user1, user2) => {
+//     return user2.age - user1.age;
+// });
+
+// console.log(userBigAge);
+// // [
+// //     { id: 6412, name: 'Anton', age: 41 },
+// //     { id: 54, name: 'Ivan', age: 35 },
+// //     { id: 1, name: 'Dima', age: 19 }
+// //   ]
+
+// find(callbackFn, thisArg)
+// Це вбудована функція, яка знаходить перший елемент масиву, який задовольняє надану функцію тестування
+
+// const userBigAge = userList.find(({ age }) => age >= 30);
+
+// console.log(userBigAge);
+// // { id: 54, name: 'Ivan', age: 35 }
+
+// ==========================
+// findIndex(callbackFn, thisArg)
+// Це вбудована функція, яка знаходить індекс першого елементу масиву, який задовольняє надану функцію тестування
+
+// const userBigAge = userList.findIndex(({ age }) => age >= 30);
+
+// console.log(userBigAge);
+// // 1
+
+// ==========================
+// findLast(callbackFn, thisArg)
+// Це вбудована функція, яка знаходить останній елемент масиву, який задовольняє надану функцію тестування
+// const userBigAge = userList.findLast(({ age }) => age >= 30);
+
+// console.log(userBigAge);
+// // { id: 6412, name: 'Anton', age: 41 }
+
+// ==========================
+// findLastIndex(callbackFn, thisArg)
+// Це вбудована функція, яка знаходить індекс першого елементу масиву, який задовольняє надану функцію тестування
+// const userBigAge = userList.findLastIndex(({ age }) => age >= 30);
+
+// console.log(userBigAge);
+// // 2
+
+// =========================
+// keys()
+// Це вбудована функція, яка повертає новий об'єкт ітератора, який містить ключі для кожного індексу в масиві.
+
+// console.log(userList.keys());
+// // Object [Array Iterator] {}
+
+// const iter = userList.keys();
+
+// for (const elem of iter) {
+//     console.log(elem);
+//     // 0  1  2
+// }
+
+// ==========================
+// values()
+// Це вбудована функція, яка містить значення для кожного індексу в масиві у впорядкованому порядку.
+
+// const values = userList.values();
+
+// for (const elem of values) {
+//     console.log(elem);
+// }
+// // { id: 1, name: 'Dima', age: 19 }
+// // { id: 54, name: 'Ivan', age: 35 }
+// // { id: 6412, name: 'Anton', age: 41 }
+
+// ==========================
+// join(separator)
+// Це вбудована функція, яка використовується для об'єднання всіх елементів масиву в один рядок. Він повертає рядок, утворений шляхом об'єднання елементів масиву за допомогою розділювача.
+// const arr = ["apple", "hotdog", "bread", "milk"];
+// console.log(arr.toString());
+// // apple,hotdog,bread,milk
+
+// console.log(arr.join("... "));
+// // apple... hotdog... bread... milk
+
+// ==========================
+// splice(start, deleteCount, item1, item2, itemN)
+// Це вбудована функція, яка видаляє, додає або замінює елементи в масиві. Він може модифікувати початковий масив, зміщуючи інші елементи відповідно.
+// const arrSmall = arr.splice(1, 2, "tea", "cheese"); // 1 - індекс з якого вирізаємо, 2 - кількість елементів яка буде вирізана, третє значення це те що ми хочемо вставити замість вирізаних елементів
+// console.log(arrSmall);
+// // [ 'hotdog', 'bread' ]
+// console.log(arr);
+// // [ 'apple', 'tea', 'cheese', 'milk' ]
+
+// ==========================
+// slice(start, end)
+// Це вбудована функція, яка створює новий масив, що містить копію певної частини вихідного масиву.
+// const newArr = [...arr].splice(1, 2);
+// console.log(newArr);
+// // [ 'hotdog', 'bread' ]
+
+// const newArr2 = arr.slice(1, 3);
+// console.log(newArr2);
+// // // [ 'hotdog', 'bread' ]
+
+// ==========================
+// reduce(callbackFn, initialValue)
+// Це вбудована функція, яка використовується для обчислення одного значення на підставі елементів масиву.
+
+// Цей метод виконує ітерацію зліва направо (з початку до кінця) по кожному елементу масиву і обробляє їх за допомогою функції зворотного виклику, накопичуючи результати в одне фінальне значення, яке повертається на виході.
+
+const newUserList = [
+    { id: 1, name: "Dima", age: 19, balance: 300 },
+    { id: 54, name: "Ivan", age: 35, balance: 900 },
+    { id: 6412, name: "Anton", age: 41, balance: 1500 },
+];
+
+// const result = newUserList.reduce((num, user) => {
+//     console.log(num, user.age);
+//     return user.age > num ? user.age : num;
+// }, 1);
+
+// console.log(result);
+// // 41
+
+// const totalBalance = newUserList.reduce((num, user) => num + user.balance, 0);
+
+// console.log(totalBalance);
+// // 2700     300+900+1500
+
+// ==========================
+// reduceRight(callbackFn, initialValue)
+// Це вбудована функція, яка використовується для обчислення одного значення на підставі елементів масиву.
+
+// Цей метод виконує ітерацію зправа наліво (з кінця до початку) по кожному елементу масиву і обробляє їх за допомогою функції зворотного виклику, накопичуючи результати в одне фінальне значення, яке повертається на виході.
+// const result = newUserList.reduceRight((num, user) => {
+//     console.log(num, user.age);
+//     return user.age > num ? user.age : num;
+// }, 1);
+// // 1 41
+// // 41 35
+// // 41 19
+
+// console.log(result);
+// //  41
+
+// ==========================
+// map(callbackFn, thisArg)
+// Це вбудована функція, яка створює новий масив, який містить результати виконання функції зворотного виклику (callback function) для кожного елемента вихідного масиву
+
+// const result = newUserList.map((user, index, array) => {
+//     user.balanceLimit = 1000 - user.balance;
+
+//     if (user.balanceLimit < 0) {
+//         user.balanceLimit = 0;
+//     }
+//     return user;
+
+//     // return user.name;
+// });
+
+// console.log(result);
+// // [ 'Dima', 'Ivan', 'Anton' ]  повертає масив користувачів
+
+// console.log(result.join(", "));
+// // Dima, Ivan, Anton   повертає перелік користувачів
+
+// console.log(result);
+// [
+//     { id: 1, name: 'Dima', age: 19, balance: 300, balanceLimit: 700 },
+//     { id: 54, name: 'Ivan', age: 35, balance: 900, balanceLimit: 100 },
+//     { id: 6412, name: 'Anton', age: 41, balance: 1500, balanceLimit: 0 }
+//   ]
+
+// ==========================
+// flat(depth)
+// Це вбудована функція, яка використовується для вирівнювання (розгортання) вкладених підмасивів в одномірний масив.
+
+// const flatArray = [
+//     [100, 101],
+//     [200, 202],
+//     [300, 301],
+//     [400, 401],
+// ];
+// console.log(flatArray.flat((el) => [...el, el[0] - el[1]]));
+// // [ [ 100, 101 ], [ 200, 202 ], [ 300, 301 ], [ 400, 401 ] ]
+
+// ==========================
+// flatMap(callbackFn, thisArg)
+// Це вбудована функція, яка дозволяє виконувати перетворення на кожен елемент масиву та об'єднувати результат у новому масиві.
+
+const flatMapArr = [
+    [
+        [100, 105],
+        [200, 205],
+    ],
+    [
+        [220, 230],
+        [400, 440],
+    ],
+];
+
+const result = flatMapArr.flatMap((el) => {
+    return el.map((it) => {
+        return it[0] - it[1];
+    });
+});
+
+console.log(result);
+// [ -5, -5, -10, -40 ]
+
+// ==========================
+// forEach(callbackFn, thisArg)
+// Це вбудована функція, яка використовується для виконання заданої функції один раз для кожного елементу у масиві без створення нового масиву.
+
+result.forEach((elem, index, array) => {
+    console.log(elem);
+    // -5
+    // -5
+    // -10
+    // -40
+});
