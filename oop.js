@@ -119,6 +119,7 @@ console.log(Object.getOwnPropertyDescriptor(dog, "location"));
 //     enumerable: false,
 //     configurable: false
 //   }
+console.log(Object.getOwnPropertyDescriptor(dog, "age"));
 
 //
 // .hasOwnProperty(prop)
