@@ -181,7 +181,7 @@ function getInfoFile(file) {
 // Якщо всі обіцянки успішно виконуються, Promise.all() повертає масив з результатами в тому ж порядку, в якому були передані вхідні обіцянки. Якщо ж хоча б одна обіцянка відхиляється (видає помилку), то повернута обіцянка відхиляється із цією помилкою.
 
 //
-Promise.allSettled([
+Promise.all([
     loadFile("example2.txt"),
     getInfoFile("new_file.doc"),
     saveFile(),
@@ -228,3 +228,66 @@ Promise.allSettled([
 
 // Promise.race(iterable)
 // Це вбудована функція, яка об’єднує список обіцянок в одну та повертає результат виконання першої успішної або неуспішної обіцянки
+
+// ===============================
+//
+// Ключове слово “асинхронно” та ”очікувати”
+
+// async Використовується в оголошенні функцій для позначення їх як асинхронних
+
+// await Використовується всередині асинхронних функцій для очікування результату проміса перед продовженням виконання коду
+
+function loadFile() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Дані файлу"), 2000);
+    });
+}
+
+function sendFileToData(filedata) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(true), 2000);
+    });
+}
+
+// // Перший варіант
+// function loadAndSendFile() {
+//     return loadFile()
+//         .then((data) => {
+//             console.log(data);
+//             return sendFileToData(data);
+//         })
+//         .finally(() => console.log("Файл відправлено"));
+// }
+
+// loadAndSendFile();
+// // Дані файлу
+// // Файл відправлено
+
+//
+// // Другий спрощений варіант
+// const loadAndSendFile = () =>
+//     loadFile()
+//         .then((data) => sendFileToData(data))
+//         .finally(() => console.log("Файл відправлено"));
+
+// loadAndSendFile();
+// // Файл відправлено
+
+//
+// Третій варіант
+
+const loadAndSendFile = async () => {
+    const data = await loadFile();
+
+    await sendFileToData(data);
+
+    console.log("Файл відправлено");
+};
+
+loadAndSendFile();
+// Файл відправлено
+
+loadAndSendFile().then(() => {
+    console.log("End");
+});
+// End
